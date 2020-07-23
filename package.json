@@ -1,0 +1,41 @@
+{
+  "name": "outlandstemplatemaker",
+  "version": "0.0.1",
+  "description": "Helper site for creating a UOOutlands character template",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vlek/outlandstemplatecreator.git"
+  },
+  "keywords": [
+    "mmo",
+    "rpg",
+    "mmorpg",
+    "calc",
+    "calculator",
+    "template",
+    "game",
+    "gaming",
+    "games",
+    "uo",
+    "ultima",
+    "ultimaonline"
+  ],
+  "author": "Derek 'Vlek' McCammond",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vlek/outlandstemplatecreator/issues"
+  },
+  "homepage": "https://github.com/vlek/outlandstemplatecreator#readme",
+  "devDependencies": {
+    "eslint": "^7.5.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1"
+  }
+}
