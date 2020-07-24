@@ -11,14 +11,30 @@
  * - Version 1.0.0
  * TODO: Give weapon special chance
  * TODO: Handle abilities requiring multiple skills
+ * - Version 1.5.0
+ * TODO: Give melee vs archery percentage changes
+ * TODO: Add skill-based percentage changes
+ * - Version 1.7.0
  * TODO: Give bandage heal amount range
+ * TODO: Potion/bandage cure chances
+ * TODO: Add weapon hit chance
  * - Version 2.0.0
+ * TODO: Ressurection chances
+ * TODO: Give bandage times for self/others
+ * TODO: Handle PvP damage caps
+ * TODO: Add camping carrying weight and capacity percentages
+ * - Version 2.5.0
  * TODO: Give animals that can be had as pets
  * TODO: Give taming chance
  * - Version 3.0.0
  * TODO: Give gatherable resources / gather chance
  * TODO: Give item creation chance
  * - Version 4.0.0
+ * TODO: Give treasure maps stats w/ carto
+ * TODO: Give lockpicking info
+ * TODO: Give stealing weights / success chance
+ * TODO: Create shareable links
+ * - Version 5.0.0
  */
 
 /* Template data: Skills
@@ -34,295 +50,301 @@
  */
 const skills = {
   anatomy: {
-    pvm_dmg: 0,
-    pvp_dmg: 0,
+    pvm_dmg: 20,
+    pvp_dmg: 20,
     abilities: [
       { skill: 60, ability: 'bandage cure' },
-      {  }
+      { skill: 80, ability: 'ressurection' }
     ]
   },
-  anatomy: {
+  archery: {
     pvm_dmg: 0,
     pvp_dmg: 0,
     abilities: [
     ]
   },
-  anatomy: {
+  alchemy: {
     pvm_dmg: 0,
     pvp_dmg: 0,
     abilities: [
     ]
   },
-  anatomy: {
+  'animal lore': {
     pvm_dmg: 0,
     pvp_dmg: 0,
     abilities: [
     ]
   },
-  anatomy: {
+  'animal taming': {
     pvm_dmg: 0,
     pvp_dmg: 0,
     abilities: [
     ]
   },
-  anatomy: {
+  'arms lore': {
     pvm_dmg: 0,
     pvp_dmg: 0,
     abilities: [
     ]
   },
-  anatomy: {
+  begging: {
     pvm_dmg: 0,
     pvp_dmg: 0,
     abilities: [
     ]
   },
-  anatomy: {
+  blacksmithing: {
+    pvm_dmg: 15,
+    pvp_dmg: 6,
+    abilities: [
+      { skill: 95, ability: 'use blacksmithy repair kits' }
+    ]
+  },
+  carpentry: {
+    pvm_dmg: 25,
+    pvp_dmg: 10,
+    abilities: [
+      { skill: 95, ability: 'use carpentry repair kits' }
+    ]
+  },
+  cartography: {
     pvm_dmg: 0,
     pvp_dmg: 0,
     abilities: [
     ]
   },
-  anatomy: {
+  cooking: {
     pvm_dmg: 0,
     pvp_dmg: 0,
     abilities: [
     ]
   },
-  anatomy: {
+  camping: {
+    pvm_dmg: 25,
+    pvp_dmg: 10,
+    abilities: [
+      { skill: 60, ability: 'Hike to cities, moongates, and healer caravans' },
+      { skill: 80, ability: 'Hike to dungeons and subterranean areas' },
+      { skill: 100, ability: 'Hike to shrines and points of interest' },
+      { skill: 120, ability: 'Hike to homes and guildhouses' }
+    ]
+  },
+  'detecting hidden': {
     pvm_dmg: 0,
     pvp_dmg: 0,
     abilities: [
     ]
   },
-  anatomy: {
+  discord: {
+    pvm_dmg: 25,
+    pvp_dmg: 0,
+    abilities: [
+      { skill: 1, ability: 'Play song of discordance' }
+    ]
+  },
+  'evaluating intelligence': {
+    pvm_dmg: 50,
+    pvp_dmg: 37.5,
+    abilities: [
+    ]
+  },
+  fencing: {
     pvm_dmg: 0,
     pvp_dmg: 0,
     abilities: [
     ]
   },
-  anatomy: {
+  fishing: {
+    pvm_dmg: 25,
+    pvp_dmg: 10,
+    abilities: [
+    ]
+  },
+  'forensic evaluation': {
+    pvm_dmg: 25,
+    pvp_dmg: 10,
+    abilities: [
+    ]
+  },
+  healing: {
     pvm_dmg: 0,
     pvp_dmg: 0,
     abilities: [
     ]
   },
-  anatomy: {
+  herding: {
     pvm_dmg: 0,
     pvp_dmg: 0,
     abilities: [
     ]
   },
-  anatomy: {
+  hiding: {
     pvm_dmg: 0,
     pvp_dmg: 0,
     abilities: [
     ]
   },
-  anatomy: {
+  inscription: {
     pvm_dmg: 0,
     pvp_dmg: 0,
     abilities: [
     ]
   },
-  anatomy: {
+  'item identification': {
     pvm_dmg: 0,
     pvp_dmg: 0,
     abilities: [
     ]
   },
-  anatomy: {
+  lockpicking: {
     pvm_dmg: 0,
     pvp_dmg: 0,
     abilities: [
     ]
   },
-  anatomy: {
+  lumberjacking: {
+    pvm_dmg: 25,
+    pvp_dmg: 10,
+    abilities: [
+    ]
+  },
+  'mace fighting': {
     pvm_dmg: 0,
     pvp_dmg: 0,
     abilities: [
     ]
   },
-  anatomy: {
+  magery: {
     pvm_dmg: 0,
     pvp_dmg: 0,
     abilities: [
     ]
   },
-  anatomy: {
+  meditation: {
     pvm_dmg: 0,
     pvp_dmg: 0,
     abilities: [
     ]
   },
-  anatomy: {
+  mining: {
     pvm_dmg: 0,
     pvp_dmg: 0,
     abilities: [
     ]
   },
-  anatomy: {
+  musicianship: {
     pvm_dmg: 0,
     pvp_dmg: 0,
     abilities: [
     ]
   },
-  anatomy: {
+  parrying: {
+    pvm_dmg: 0,
+    pvp_dmg: 0,
+    abilities: [
+      { skill: 1, ability: 'shield taunt' }
+    ]
+  },
+  peacemaking: {
+    pvm_dmg: 0,
+    pvp_dmg: 0,
+    abilities: [
+      { skill: 1, ability: 'song of peacemaking' }
+    ]
+  },
+  poisoning: {
+    pvm_dmg: 0,
+    pvp_dmg: 0,
+    abilities: [
+      { skill: 1, ability: 'increased poison damage' }
+    ]
+  },
+  provocation: {
+    pvm_dmg: 0,
+    pvp_dmg: 0,
+    abilities: [
+      { skill: 1, ability: 'song of provocation' }
+    ]
+  },
+  'resisting spells': {
     pvm_dmg: 0,
     pvp_dmg: 0,
     abilities: [
     ]
   },
-  anatomy: {
+  snooping: {
     pvm_dmg: 0,
     pvp_dmg: 0,
     abilities: [
     ]
   },
-  anatomy: {
+  'spirit speaking': {
     pvm_dmg: 0,
     pvp_dmg: 0,
     abilities: [
     ]
   },
-  anatomy: {
+  stealing: {
     pvm_dmg: 0,
     pvp_dmg: 0,
     abilities: [
     ]
   },
-  anatomy: {
+  stealth: {
+    pvm_dmg: 0,
+    pvp_dmg: 0,
+    abilities: [
+      { skill: 80, ability: 'backstab' }
+    ]
+  },
+  swordsmanship: {
     pvm_dmg: 0,
     pvp_dmg: 0,
     abilities: [
     ]
   },
-  anatomy: {
+  tactics: {
+    pvm_dmg: 50,
+    pvp_dmg: 50,
+    abilities: [
+    ]
+  },
+  tailoring: {
     pvm_dmg: 0,
     pvp_dmg: 0,
     abilities: [
     ]
   },
-  anatomy: {
+  'taste identification': {
     pvm_dmg: 0,
     pvp_dmg: 0,
     abilities: [
     ]
   },
-  anatomy: {
+  tinkering: {
     pvm_dmg: 0,
     pvp_dmg: 0,
     abilities: [
     ]
   },
-  anatomy: {
+  tracking: {
     pvm_dmg: 0,
     pvp_dmg: 0,
     abilities: [
     ]
   },
-  anatomy: {
+  veterinary: {
     pvm_dmg: 0,
     pvp_dmg: 0,
     abilities: [
     ]
   },
-  anatomy: {
+  wreslting: {
     pvm_dmg: 0,
     pvp_dmg: 0,
     abilities: [
     ]
-  },
-  anatomy: {
-    pvm_dmg: 0,
-    pvp_dmg: 0,
-    abilities: [
-    ]
-  },
-  anatomy: {
-    pvm_dmg: 0,
-    pvp_dmg: 0,
-    abilities: [
-    ]
-  },
-  anatomy: {
-    pvm_dmg: 0,
-    pvp_dmg: 0,
-    abilities: [
-    ]
-  },
-  anatomy: {
-    pvm_dmg: 0,
-    pvp_dmg: 0,
-    abilities: [
-    ]
-  },
-  anatomy: {
-    pvm_dmg: 0,
-    pvp_dmg: 0,
-    abilities: [
-    ]
-  },
-  anatomy: {
-    pvm_dmg: 0,
-    pvp_dmg: 0,
-    abilities: [
-    ]
-  },
-  anatomy: {
-    pvm_dmg: 0,
-    pvp_dmg: 0,
-    abilities: [
-    ]
-  },
-  anatomy: {
-    pvm_dmg: 0,
-    pvp_dmg: 0,
-    abilities: [
-    ]
-  },
-  anatomy: {
-    pvm_dmg: 0,
-    pvp_dmg: 0,
-    abilities: [
-    ]
-  },
-  anatomy: {
-    pvm_dmg: 0,
-    pvp_dmg: 0,
-    abilities: [
-    ]
-  },
-  anatomy: {
-    pvm_dmg: 0,
-    pvp_dmg: 0,
-    abilities: [
-    ]
-  },
-  anatomy: {
-    pvm_dmg: 0,
-    pvp_dmg: 0,
-    abilities: [
-    ]
-  },
-  anatomy: {
-    pvm_dmg: 0,
-    pvp_dmg: 0,
-    abilities: [
-    ]
-  },
-  anatomy: {
-    pvm_dmg: 0,
-    pvp_dmg: 0,
-    abilities: [
-    ]
-  },
-  anatomy: {
-    pvm_dmg: 0,
-    pvp_dmg: 0,
-    abilities: [
-    ]
-  },
+  }
 }
 
 /* Skill combo abilities:
@@ -337,4 +359,21 @@ const skills = {
  */
 const skill_combo_abilities = {
 
+}
+
+function calculateBonuses (selectedSkills) {
+  // We start out at -50% because of Tactics
+  let pvmBonus = -50
+  let pvpBonus = -50
+
+  for (const skill of selectedSkills) {
+    const skillName = skill.name
+    const skillValue = skill.value
+    const skillInfo = skills[skillName]
+
+    pvmBonus += skillValue / 100 * skillInfo.pvm_dmg
+    pvpBonus += skillValue / 100 * skillInfo.pvp_dmg
+  }
+
+  return { pvmBonus: pvmBonus, pvpBonus: pvpBonus }
 }
