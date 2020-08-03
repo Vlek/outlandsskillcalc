@@ -35,6 +35,7 @@
  * TODO: Give stealing weights / success chance
  * TODO: Create shareable links
  * - Version 5.0.0
+ * TODO: Be able to give players a comparison against monsters and their stats
  */
 
 /* Template data: Skills
@@ -328,8 +329,8 @@ const skills = {
     ]
   },
   tracking: {
-    pvm_dmg: 0,
-    pvp_dmg: 0,
+    pvm_dmg: 25,
+    pvp_dmg: 10,
     abilities: [
     ]
   },
@@ -366,13 +367,16 @@ function calculateBonuses (selectedSkills) {
   let pvmBonus = -50
   let pvpBonus = -50
 
-  for (const skill of selectedSkills) {
-    const skillName = skill.name
-    const skillValue = skill.value
-    const skillInfo = skills[skillName]
+  for (const [skill, value] of Object.entries(selectedSkills)) {
+    const skillInfo = skills[skill]
 
-    pvmBonus += skillValue / 100 * skillInfo.pvm_dmg
-    pvpBonus += skillValue / 100 * skillInfo.pvp_dmg
+    pvmBonus += value / 100 * skillInfo.pvm_dmg
+    pvpBonus += value / 100 * skillInfo.pvp_dmg
+  }
+
+  // TODO: Deal with supplemental vs tactics/anat
+  if (pvpBonus > 20) {
+    pvpBonus = 20
   }
 
   return { pvmBonus: pvmBonus, pvpBonus: pvpBonus }
