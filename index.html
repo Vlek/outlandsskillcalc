@@ -9,15 +9,105 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
-        <script src="/app.js"></script>
+        <script src="app.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
         <div class="jumbotron text-center">
-          <h1>UOOutlands template creator</h1>
+          <h1>UO Outlands Template Creator</h1>
           <p>Add skills to the below table to see their affect on your abilites and damage!</p>
         </div>
-        <table id="calculator">
-        </table>
-        <button id="addrow">
+        <div class="container">
+            <table class="table table-bordered table-dark table-striped table-sm" id="calculator">
+                <thead>
+                    <tr>
+                        <th scope="col">Skill Name</th>
+                        <th scope="col">Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <button onclick="addRow()">Add row</button>
+            <br><br>
+            <table class="table table-bordered table-dark table-striped table-sm" id="bonuses">
+                <thead>
+                    <tr>
+                        <th scope="col">Bonus</th>
+                        <th scope="col">Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>PvM</td><td id="pvmBonus">0</td></tr>
+                    <tr><td>PvP</td><td id="pvpBonus">0</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <script>
+            const table = document.getElementById("calculator");
+            const pvmBonus = document.getElementById("pvmBonus");
+            const pvpBonus = document.getElementById("pvpBonus");
+
+            const calculationCallback = function(mutationsList, observer) {
+                console.log("Calculating!");
+                const newSkills = {};
+
+                for (let i = 1; i < table.rows.length; i++) {
+                    console.log(i);
+                    let row = table.rows[i];
+                    let skill = row.cells[0].children[0].value
+                    let value = row.cells[1].textContent
+
+                    if (skill != '' && value != '') {
+                        newSkills[skill] = parseFloat(value);
+                    }
+                }
+
+                console.log(newSkills);
+
+                const bonuses = calculateBonuses(newSkills);
+                pvmBonus.textContent = bonuses.pvmBonus;
+                pvpBonus.textContent = bonuses.pvpBonus;
+            };
+
+            const observer = new MutationObserver(calculationCallback);
+            observer.observe(table,
+                {
+                    attributes: true,
+                    characterData: true,
+                    subtree: true,
+                }
+            )
+
+            function addRow() {
+                if (table.rows.length > 14) {
+                    console.log("Pretty sure having over 15 skills is silly");
+                    return;
+                }
+                const newRow = table.insertRow();
+
+                const skillSelector = newRow.insertCell();
+                const newSelector = document.createElement("select")
+
+                let blankOption = document.createElement("option")
+                newSelector.add(blankOption)
+
+                for (const [skill, value] of Object.entries(skills)) {
+                    let skillOption = document.createElement("option")
+                    skillOption.text = skill
+                    newSelector.add(skillOption)
+                }
+
+                skillSelector.appendChild(newSelector);
+                observer.observe(skillSelector, {attributes: true})
+
+                const value = newRow.insertCell();
+                value.contentEditable = "true";
+            };
+
+            for (let i = 0; i < 7; i++) {
+                addRow();
+            }
+        </script>
     </body>
 </html>

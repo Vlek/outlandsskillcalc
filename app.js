@@ -340,7 +340,7 @@ const skills = {
     abilities: [
     ]
   },
-  wreslting: {
+  wrestling: {
     pvm_dmg: 0,
     pvp_dmg: 0,
     abilities: [
@@ -367,8 +367,12 @@ function calculateBonuses (selectedSkills) {
   let pvmBonus = -50
   let pvpBonus = -50
 
+  console.log(selectedSkills);
+
   for (const [skill, value] of Object.entries(selectedSkills)) {
+    console.log(skill);
     const skillInfo = skills[skill]
+    console.log(skillInfo);
 
     pvmBonus += value / 100 * skillInfo.pvm_dmg
     pvpBonus += value / 100 * skillInfo.pvp_dmg
@@ -378,6 +382,8 @@ function calculateBonuses (selectedSkills) {
   if (pvpBonus > 20) {
     pvpBonus = 20
   }
+
+  console.log(pvmBonus, pvpBonus);
 
   return { pvmBonus: pvmBonus, pvpBonus: pvpBonus }
 }
